@@ -98,10 +98,10 @@ function App() {
   const getQuickStats = () => {
     if (dataset.length === 0) return null;
     
-    const avgRating = (dataset.reduce((sum, item) => sum + item.rating, 0) / dataset.length).toFixed(1);
-    const avgCost = Math.round(dataset.reduce((sum, item) => sum + item.cost_for_two, 0) / dataset.length);
-    const avgDeliveryTime = Math.round(dataset.reduce((sum, item) => sum + item.delivery_time, 0) / dataset.length);
-    const totalVotes = dataset.reduce((sum, item) => sum + item.votes, 0);
+    const avgRating = (dataset.reduce((sum, item) => sum + (Number(item.rating) || 0), 0) / dataset.length).toFixed(1);
+    const avgCost = Math.round(dataset.reduce((sum, item) => sum + (Number(item.cost_for_two) || 0), 0) / dataset.length);
+    const avgDeliveryTime = Math.round(dataset.reduce((sum, item) => sum + (Number(item.delivery_time) || 0), 0) / dataset.length);
+    const totalVotes = dataset.reduce((sum, item) => sum + (Number(item.votes) || 0), 0);
     
     return { avgRating, avgCost, avgDeliveryTime, totalVotes };
   };

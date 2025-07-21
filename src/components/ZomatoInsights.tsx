@@ -12,8 +12,8 @@ const ZomatoInsights: React.FC<ZomatoInsightsProps> = ({ dataset }) => {
     const insights = [];
 
     // Rating Analysis
-    const avgRating = dataset.reduce((sum, item) => sum + item.rating, 0) / dataset.length;
-    const highRatedCount = dataset.filter(item => item.rating >= 4.0).length;
+    const avgRating = dataset.reduce((sum, item) => sum + (Number(item.rating) || 0), 0) / dataset.length;
+    const highRatedCount = dataset.filter(item => (Number(item.rating) || 0) >= 4.0).length;
     const highRatedPercentage = ((highRatedCount / dataset.length) * 100).toFixed(1);
 
     insights.push({
@@ -28,9 +28,9 @@ const ZomatoInsights: React.FC<ZomatoInsightsProps> = ({ dataset }) => {
     });
 
     // Cost Analysis
-    const avgCost = dataset.reduce((sum, item) => sum + item.cost_for_two, 0) / dataset.length;
-    const expensiveCount = dataset.filter(item => item.cost_for_two > avgCost).length;
-    const budgetFriendlyCount = dataset.filter(item => item.cost_for_two <= 500).length;
+    const avgCost = dataset.reduce((sum, item) => sum + (Number(item.cost_for_two) || 0), 0) / dataset.length;
+    const expensiveCount = dataset.filter(item => (Number(item.cost_for_two) || 0) > avgCost).length;
+    const budgetFriendlyCount = dataset.filter(item => (Number(item.cost_for_two) || 0) <= 500).length;
 
     insights.push({
       type: 'cost',
@@ -44,8 +44,8 @@ const ZomatoInsights: React.FC<ZomatoInsightsProps> = ({ dataset }) => {
     });
 
     // Delivery Time Analysis
-    const avgDeliveryTime = dataset.reduce((sum, item) => sum + item.delivery_time, 0) / dataset.length;
-    const fastDeliveryCount = dataset.filter(item => item.delivery_time <= 25).length;
+    const avgDeliveryTime = dataset.reduce((sum, item) => sum + (Number(item.delivery_time) || 0), 0) / dataset.length;
+    const fastDeliveryCount = dataset.filter(item => (Number(item.delivery_time) || 0) <= 25).length;
     const fastDeliveryPercentage = ((fastDeliveryCount / dataset.length) * 100).toFixed(1);
 
     insights.push({
@@ -61,7 +61,8 @@ const ZomatoInsights: React.FC<ZomatoInsightsProps> = ({ dataset }) => {
 
     // Cuisine Popularity
     const cuisineCount = dataset.reduce((acc, item) => {
-      acc[item.cuisine] = (acc[item.cuisine] || 0) + 1;
+      const cuisine = item.cuisine || 'Unknown';
+      acc[cuisine] = (acc[cuisine] || 0) + 1;
       return acc;
     }, {});
     const topCuisine = Object.entries(cuisineCount).sort(([,a], [,b]) => (b as number) - (a as number))[0];
@@ -80,7 +81,8 @@ const ZomatoInsights: React.FC<ZomatoInsightsProps> = ({ dataset }) => {
 
     // Location Analysis
     const locationCount = dataset.reduce((acc, item) => {
-      acc[item.location] = (acc[item.location] || 0) + 1;
+      const location = item.location || 'Unknown';
+      acc[location] = (acc[location] || 0) + 1;
       return acc;
     }, {});
     const topLocation = Object.entries(locationCount).sort(([,a], [,b]) => (b as number) - (a as number))[0];

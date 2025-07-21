@@ -36,7 +36,8 @@ const ZomatoVisualization: React.FC<ZomatoVisualizationProps> = ({ dataset }) =>
 
     // Cuisine Distribution
     const cuisineData = dataset.reduce((acc, item) => {
-      acc[item.cuisine] = (acc[item.cuisine] || 0) + 1;
+      const cuisine = item.cuisine || 'Unknown';
+      acc[cuisine] = (acc[cuisine] || 0) + 1;
       return acc;
     }, {});
 
@@ -77,11 +78,12 @@ const ZomatoVisualization: React.FC<ZomatoVisualizationProps> = ({ dataset }) =>
 
     // Location-wise Average Rating
     const locationRating = dataset.reduce((acc, item) => {
-      if (!acc[item.location]) {
-        acc[item.location] = { total: 0, count: 0 };
+      const location = item.location || 'Unknown';
+      if (!acc[location]) {
+        acc[location] = { total: 0, count: 0 };
       }
-      acc[item.location].total += item.rating;
-      acc[item.location].count += 1;
+      acc[location].total += (Number(item.rating) || 0);
+      acc[location].count += 1;
       return acc;
     }, {});
 
@@ -111,9 +113,10 @@ const ZomatoVisualization: React.FC<ZomatoVisualizationProps> = ({ dataset }) =>
     };
 
     dataset.forEach(item => {
-      if (item.delivery_time <= 20) deliveryTimeRanges['0-20 min']++;
-      else if (item.delivery_time <= 30) deliveryTimeRanges['21-30 min']++;
-      else if (item.delivery_time <= 40) deliveryTimeRanges['31-40 min']++;
+      const deliveryTime = Number(item.delivery_time) || 30;
+      if (deliveryTime <= 20) deliveryTimeRanges['0-20 min']++;
+      else if (deliveryTime <= 30) deliveryTimeRanges['21-30 min']++;
+      else if (deliveryTime <= 40) deliveryTimeRanges['31-40 min']++;
       else deliveryTimeRanges['40+ min']++;
     });
 

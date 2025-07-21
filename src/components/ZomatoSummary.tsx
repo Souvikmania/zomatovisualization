@@ -11,25 +11,27 @@ const ZomatoSummary: React.FC<ZomatoSummaryProps> = ({ dataset, info }) => {
   const getInsights = () => {
     if (dataset.length === 0) return {};
     
-    const avgRating = dataset.reduce((sum, item) => sum + item.rating, 0) / dataset.length;
-    const avgCost = dataset.reduce((sum, item) => sum + item.cost_for_two, 0) / dataset.length;
-    const avgDeliveryTime = dataset.reduce((sum, item) => sum + item.delivery_time, 0) / dataset.length;
-    const totalVotes = dataset.reduce((sum, item) => sum + item.votes, 0);
+    const avgRating = dataset.reduce((sum, item) => sum + (Number(item.rating) || 0), 0) / dataset.length;
+    const avgCost = dataset.reduce((sum, item) => sum + (Number(item.cost_for_two) || 0), 0) / dataset.length;
+    const avgDeliveryTime = dataset.reduce((sum, item) => sum + (Number(item.delivery_time) || 0), 0) / dataset.length;
+    const totalVotes = dataset.reduce((sum, item) => sum + (Number(item.votes) || 0), 0);
     
     const cuisineCount = dataset.reduce((acc, item) => {
-      acc[item.cuisine] = (acc[item.cuisine] || 0) + 1;
+      const cuisine = item.cuisine || 'Unknown';
+      acc[cuisine] = (acc[cuisine] || 0) + 1;
       return acc;
     }, {});
     
     const locationCount = dataset.reduce((acc, item) => {
-      acc[item.location] = (acc[item.location] || 0) + 1;
+      const location = item.location || 'Unknown';
+      acc[location] = (acc[location] || 0) + 1;
       return acc;
     }, {});
     
     const topCuisine = Object.entries(cuisineCount).sort(([,a], [,b]) => (b as number) - (a as number))[0];
     const topLocation = Object.entries(locationCount).sort(([,a], [,b]) => (b as number) - (a as number))[0];
-    const highestRated = dataset.reduce((max, item) => item.rating > max.rating ? item : max);
-    const mostExpensive = dataset.reduce((max, item) => item.cost_for_two > max.cost_for_two ? item : max);
+    const highestRated = dataset.reduce((max, item) => (Number(item.rating) || 0) > (Number(max.rating) || 0) ? item : max);
+    const mostExpensive = dataset.reduce((max, item) => (Number(item.cost_for_two) || 0) > (Number(max.cost_for_two) || 0) ? item : max);
     
     return {
       avgRating: avgRating.toFixed(1),

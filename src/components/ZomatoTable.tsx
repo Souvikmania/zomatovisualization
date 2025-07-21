@@ -19,23 +19,23 @@ const ZomatoTable: React.FC<ZomatoTableProps> = ({ dataset }) => {
 
   if (dataset.length === 0) return null;
 
-  const cuisines = [...new Set(dataset.map(item => item.cuisine))];
-  const locations = [...new Set(dataset.map(item => item.location))];
+  const cuisines = [...new Set(dataset.map(item => item.cuisine || 'Unknown'))];
+  const locations = [...new Set(dataset.map(item => item.location || 'Unknown'))];
 
   const filteredData = dataset.filter(row => {
     const matchesSearch = Object.values(row).some(value =>
       String(value).toLowerCase().includes(searchTerm.toLowerCase())
     );
-    const matchesCuisine = !filterCuisine || row.cuisine === filterCuisine;
-    const matchesLocation = !filterLocation || row.location === filterLocation;
+    const matchesCuisine = !filterCuisine || (row.cuisine || 'Unknown') === filterCuisine;
+    const matchesLocation = !filterLocation || (row.location || 'Unknown') === filterLocation;
     const matchesRating = !ratingFilter || 
-      (ratingFilter === '4+' && row.rating >= 4.0) ||
-      (ratingFilter === '3-4' && row.rating >= 3.0 && row.rating < 4.0) ||
-      (ratingFilter === '<3' && row.rating < 3.0);
+      (ratingFilter === '4+' && (Number(row.rating) || 0) >= 4.0) ||
+      (ratingFilter === '3-4' && (Number(row.rating) || 0) >= 3.0 && (Number(row.rating) || 0) < 4.0) ||
+      (ratingFilter === '<3' && (Number(row.rating) || 0) < 3.0);
     const matchesCost = !costFilter ||
-      (costFilter === 'budget' && row.cost_for_two <= 500) ||
-      (costFilter === 'mid' && row.cost_for_two > 500 && row.cost_for_two <= 1000) ||
-      (costFilter === 'premium' && row.cost_for_two > 1000);
+      (costFilter === 'budget' && (Number(row.cost_for_two) || 0) <= 500) ||
+      (costFilter === 'mid' && (Number(row.cost_for_two) || 0) > 500 && (Number(row.cost_for_two) || 0) <= 1000) ||
+      (costFilter === 'premium' && (Number(row.cost_for_two) || 0) > 1000);
     
     return matchesSearch && matchesCuisine && matchesLocation && matchesRating && matchesCost;
   });
