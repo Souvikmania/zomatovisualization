@@ -6,23 +6,32 @@ import ZomatoVisualization from './components/ZomatoVisualization';
 import ZomatoTable from './components/ZomatoTable';
 import ZomatoInsights from './components/ZomatoInsights';
 import { DatasetInfo } from './types';
-import { sampleZomatoData, largeZomatoDataset, generateLargeDataset } from './data/sampleData';
+import { 
+  sampleZomatoData, 
+  smallDataset, 
+  mediumDataset, 
+  largeDataset, 
+  extraLargeDataset,
+  generateCustomDataset,
+  getDatasetStats 
+} from './data/sampleData';
 
 function App() {
-  const [dataset, setDataset] = useState<any[]>(largeZomatoDataset);
+  const [dataset, setDataset] = useState<any[]>(mediumDataset);
   const [datasetInfo, setDatasetInfo] = useState<DatasetInfo | null>(null);
   const [activeTab, setActiveTab] = useState<'overview' | 'upload' | 'visualize' | 'table' | 'insights'>('overview');
   const [isProcessing, setIsProcessing] = useState(false);
-  const [datasetSize, setDatasetSize] = useState<'small' | 'medium' | 'large'>('medium');
+  const [datasetSize, setDatasetSize] = useState<'small' | 'medium' | 'large' | 'extra-large' | 'custom'>('medium');
+  const [customSize, setCustomSize] = useState<number>(2500);
 
   useEffect(() => {
     // Auto-load sample data on startup
-    if (largeZomatoDataset.length > 0) {
+    if (mediumDataset.length > 0) {
       setDatasetInfo({
-        name: 'Zomato Restaurant Dataset',
-        rows: largeZomatoDataset.length,
-        columns: Object.keys(largeZomatoDataset[0] || {}).length,
-        size: `${(JSON.stringify(largeZomatoDataset).length / 1024).toFixed(2)} KB`,
+        name: 'Zomato Restaurant Dataset (Medium)',
+        rows: mediumDataset.length,
+        columns: Object.keys(mediumDataset[0] || {}).length,
+        size: `${(JSON.stringify(mediumDataset).length / 1024).toFixed(2)} KB`,
         lastModified: new Date().toLocaleDateString()
       });
     }
@@ -51,19 +60,27 @@ function App() {
     
     switch (datasetSize) {
       case 'small':
-        dataToLoad = sampleZomatoData;
-        datasetName = 'Zomato Sample Dataset (Small)';
+        dataToLoad = smallDataset;
+        datasetName = 'Zomato Restaurant Dataset (Small - 100 restaurants)';
         break;
       case 'medium':
-        dataToLoad = largeZomatoDataset;
-        datasetName = 'Zomato Restaurant Dataset (Medium)';
+        dataToLoad = mediumDataset;
+        datasetName = 'Zomato Restaurant Dataset (Medium - 1,000 restaurants)';
         break;
       case 'large':
-        dataToLoad = generateLargeDataset(2000);
-        datasetName = 'Zomato Restaurant Dataset (Large)';
+        dataToLoad = largeDataset;
+        datasetName = 'Zomato Restaurant Dataset (Large - 5,000 restaurants)';
+        break;
+      case 'extra-large':
+        dataToLoad = extraLargeDataset;
+        datasetName = 'Zomato Restaurant Dataset (Extra Large - 10,000 restaurants)';
+        break;
+      case 'custom':
+        dataToLoad = generateCustomDataset(customSize);
+        datasetName = `Zomato Restaurant Dataset (Custom - ${customSize.toLocaleString()} restaurants)`;
         break;
       default:
-        dataToLoad = largeZomatoDataset;
+        dataToLoad = mediumDataset;
         datasetName = 'Zomato Restaurant Dataset';
     }
     
@@ -191,27 +208,48 @@ function App() {
               <label className="block text-sm font-medium text-gray-700 mb-2">Choose Dataset Size</label>
               <select
                 value={datasetSize}
-                onChange={(e) => setDatasetSize(e.target.value as 'small' | 'medium' | 'large')}
+                onChange={(e) => setDatasetSize(e.target.value as 'small' | 'medium' | 'large' | 'extra-large' | 'custom')}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               >
-                <option value="small">Small Dataset (~100 restaurants)</option>
-                <option value="medium">Medium Dataset (~600 restaurants)</option>
-                <option value="large">Large Dataset (~2,100 restaurants)</option>
+                <option value="small">Small Dataset (100 restaurants)</option>
+                <option value="medium">Medium Dataset (1,000 restaurants)</option>
+                <option value="large">Large Dataset (5,000 restaurants)</option>
+                <option value="extra-large">Extra Large Dataset (10,000 restaurants)</option>
+                <option value="custom">Custom Size</option>
               </select>
             </div>
+            
+            {datasetSize === 'custom' && (
+              <div className="max-w-md mx-auto mb-6">
+                <label className="block text-sm font-medium text-gray-700 mb-2">Custom Dataset Size</label>
+                <input
+                  type="number"
+                  min="100"
+                  max="50000"
+                  step="100"
+                  value={customSize}
+                  onChange={(e) => setCustomSize(Number(e.target.value))}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="Enter number of restaurants"
+                />
+                <p className="text-xs text-gray-500 mt-1">Range: 100 - 50,000 restaurants</p>
+              </div>
+            )}
             
             <div className="space-y-3">
               <button
                 onClick={loadSampleData}
                 className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 block mx-auto"
               >
-                Load {datasetSize.charAt(0).toUpperCase() + datasetSize.slice(1)} Dataset
+                Load {datasetSize === 'custom' ? `Custom (${customSize.toLocaleString()})` : datasetSize.charAt(0).toUpperCase() + datasetSize.slice(1)} Dataset
               </button>
               
               <p className="text-sm text-gray-500">
-                {datasetSize === 'small' && 'Perfect for quick exploration and testing'}
-                {datasetSize === 'medium' && 'Comprehensive dataset with diverse restaurants'}
-                {datasetSize === 'large' && 'Extensive dataset for advanced analytics'}
+                {datasetSize === 'small' && 'Perfect for quick exploration and testing (100 restaurants)'}
+                {datasetSize === 'medium' && 'Comprehensive dataset with diverse restaurants (1,000 restaurants)'}
+                {datasetSize === 'large' && 'Extensive dataset for advanced analytics (5,000 restaurants)'}
+                {datasetSize === 'extra-large' && 'Massive dataset for enterprise-level analysis (10,000 restaurants)'}
+                {datasetSize === 'custom' && `Custom dataset with ${customSize.toLocaleString()} restaurants`}
               </p>
             </div>
           </div>

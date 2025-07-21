@@ -53,7 +53,11 @@ const ZomatoSummary: React.FC<ZomatoSummaryProps> = ({ dataset, info }) => {
       <div className="bg-white rounded-3xl shadow-xl p-8 border border-orange-100">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-800 mb-2">Restaurant Analytics Overview</h2>
-          <p className="text-gray-600">Comprehensive insights from {info.rows.toLocaleString()} restaurants across {insights.totalLocations} cities</p>
+          <p className="text-gray-600">
+            Comprehensive insights from <span className="font-semibold text-orange-600">{info.rows.toLocaleString()}</span> restaurants 
+            across <span className="font-semibold text-blue-600">{insights.totalLocations}</span> cities 
+            featuring <span className="font-semibold text-green-600">{insights.totalCuisines}</span> cuisine types
+          </p>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

@@ -13,6 +13,9 @@ const ZomatoTable: React.FC<ZomatoTableProps> = ({ dataset }) => {
   const [filterCuisine, setFilterCuisine] = useState<string>('');
   const [filterLocation, setFilterLocation] = useState<string>('');
   const [rowsPerPage, setRowsPerPage] = useState(25);
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  const [ratingFilter, setRatingFilter] = useState<string>('');
+  const [costFilter, setCostFilter] = useState<string>('');
 
   if (dataset.length === 0) return null;
 
@@ -25,8 +28,16 @@ const ZomatoTable: React.FC<ZomatoTableProps> = ({ dataset }) => {
     );
     const matchesCuisine = !filterCuisine || row.cuisine === filterCuisine;
     const matchesLocation = !filterLocation || row.location === filterLocation;
+    const matchesRating = !ratingFilter || 
+      (ratingFilter === '4+' && row.rating >= 4.0) ||
+      (ratingFilter === '3-4' && row.rating >= 3.0 && row.rating < 4.0) ||
+      (ratingFilter === '<3' && row.rating < 3.0);
+    const matchesCost = !costFilter ||
+      (costFilter === 'budget' && row.cost_for_two <= 500) ||
+      (costFilter === 'mid' && row.cost_for_two > 500 && row.cost_for_two <= 1000) ||
+      (costFilter === 'premium' && row.cost_for_two > 1000);
     
-    return matchesSearch && matchesCuisine && matchesLocation;
+    return matchesSearch && matchesCuisine && matchesLocation && matchesRating && matchesCost;
   });
 
   const sortedData = [...filteredData].sort((a, b) => {
@@ -85,7 +96,127 @@ const ZomatoTable: React.FC<ZomatoTableProps> = ({ dataset }) => {
 
       {/* Filters */}
       <div className="bg-white rounded-3xl shadow-xl p-6 border border-orange-100">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold text-gray-800">Filters & Search</h3>
+            <button
+              onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
+              className="text-sm text-orange-600 hover:text-orange-700 font-medium"
+            >
+              {showAdvancedFilters ? 'Hide' : 'Show'} Advanced Filters
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <select
+              value={rowsPerPage}
+              onChange={(e) => {
+                setRowsPerPage(Number(e.target.value));
+                setCurrentPage(1);
+              }}
+              className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            >
+              <option value={10}>10 per page</option>
+              <option value={25}>25 per page</option>
+              <option value={50}>50 per page</option>
+              <option value={100}>100 per page</option>
+              <option value={250}>250 per page</option>
+            </select>
+            
+            <div className="relative">
+              <Search className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search restaurants..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 pr-4 py-3 w-full border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              />
+            </div>
+            
+            <select
+              value={filterCuisine}
+              onChange={(e) => setFilterCuisine(e.target.value)}
+              className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            >
+              <option value="">All Cuisines</option>
+              {cuisines.map(cuisine => (
+                <option key={cuisine} value={cuisine}>{cuisine}</option>
+              ))}
+            </select>
+            
+            <select
+              value={filterLocation}
+              onChange={(e) => setFilterLocation(e.target.value)}
+              className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            >
+              <option value="">All Locations</option>
+              {locations.map(location => (
+                <option key={location} value={location}>{location}</option>
+              ))}
+            </select>
+            
+            <div className="flex items-center text-sm text-gray-600">
+              <Filter className="h-4 w-4 mr-2" />
+              {filteredData.length.toLocaleString()} of {dataset.length.toLocaleString()}
+              {searchTerm && <span className="ml-2 text-orange-600">(filtered)</span>}
+            </div>
+          </div>
+          
+          {showAdvancedFilters && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-gray-200">
+              <select
+                value={ratingFilter}
+                onChange={(e) => setRatingFilter(e.target.value)}
+                className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              >
+                <option value="">All Ratings</option>
+                <option value="4+">4.0+ Stars</option>
+                <option value="3-4">3.0 - 4.0 Stars</option>
+                <option value="<3">Below 3.0 Stars</option>
+              </select>
+              
+              <select
+                value={costFilter}
+                onChange={(e) => setCostFilter(e.target.value)}
+                className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              >
+                <option value="">All Price Ranges</option>
+                <option value="budget">Budget (≤₹500)</option>
+                <option value="mid">Mid-range (₹500-₹1000)</option>
+                <option value="premium">Premium (₹1000+)</option>
+              </select>
+              
+              <button
+                onClick={() => {
+                  setSearchTerm('');
+                  setFilterCuisine('');
+                  setFilterLocation('');
+                  setRatingFilter('');
+                  setCostFilter('');
+                }}
+                className="px-4 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors font-medium"
+              >
+                Clear All Filters
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Enhanced Table */}
+      <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-orange-100">
+        {/* Performance indicator for large datasets */}
+        {dataset.length > 5000 && (
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 px-6 py-3 border-b border-blue-200">
+            <div className="flex items-center text-sm text-blue-700">
+              <div className="animate-pulse w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+              <span>Large dataset loaded ({dataset.length.toLocaleString()} restaurants) - Use filters for better performance</span>
+            </div>
+          </div>
+        )}
+        
+        <div className="overflow-x-auto">
           <select
             value={rowsPerPage}
             onChange={(e) => {
@@ -98,52 +229,8 @@ const ZomatoTable: React.FC<ZomatoTableProps> = ({ dataset }) => {
             <option value={25}>25 per page</option>
             <option value={50}>50 per page</option>
             <option value={100}>100 per page</option>
+            <option value={250}>250 per page</option>
           </select>
-          
-          <div className="relative">
-            <Search className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search restaurants..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 pr-4 py-3 w-full border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-            />
-          </div>
-          
-          <select
-            value={filterCuisine}
-            onChange={(e) => setFilterCuisine(e.target.value)}
-            className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-          >
-            <option value="">All Cuisines</option>
-            {cuisines.map(cuisine => (
-              <option key={cuisine} value={cuisine}>{cuisine}</option>
-            ))}
-          </select>
-          
-          <select
-            value={filterLocation}
-            onChange={(e) => setFilterLocation(e.target.value)}
-            className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-          >
-            <option value="">All Locations</option>
-            {locations.map(location => (
-              <option key={location} value={location}>{location}</option>
-            ))}
-          </select>
-          
-          <div className="flex items-center text-sm text-gray-600">
-            <Filter className="h-4 w-4 mr-2" />
-            {filteredData.length.toLocaleString()} of {dataset.length.toLocaleString()} restaurants
-            {searchTerm && <span className="ml-2 text-orange-600">(filtered)</span>}
-          </div>
-        </div>
-      </div>
-
-      {/* Table */}
-      <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-orange-100">
-        <div className="overflow-x-auto">
           <table className="min-w-full">
             <thead className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
               <tr>

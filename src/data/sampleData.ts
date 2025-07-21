@@ -1,4 +1,4 @@
-// Large comprehensive Zomato dataset for demonstration
+// Enhanced Zomato dataset with comprehensive restaurant data
 export const sampleZomatoData = [
   // Premium Restaurants - Delhi
   {
@@ -90,884 +90,201 @@ export const sampleZomatoData = [
     location: "Delhi",
     delivery_time: 35,
     votes: 3456
-  },
-
-  // Mumbai Restaurants
-  {
-    restaurant_name: "Pizza Palace",
-    cuisine: "Italian",
-    rating: 4.0,
-    cost_for_two: 600,
-    location: "Mumbai",
-    delivery_time: 25,
-    votes: 890
-  },
-  {
-    restaurant_name: "Curry Express",
-    cuisine: "Indian",
-    rating: 3.9,
-    cost_for_two: 400,
-    location: "Mumbai",
-    delivery_time: 22,
-    votes: 567
-  },
-  {
-    restaurant_name: "Smoothie Station",
-    cuisine: "Healthy",
-    rating: 4.3,
-    cost_for_two: 300,
-    location: "Mumbai",
-    delivery_time: 15,
-    votes: 345
-  },
-  {
-    restaurant_name: "Mediterranean Magic",
-    cuisine: "Mediterranean",
-    rating: 4.1,
-    cost_for_two: 900,
-    location: "Mumbai",
-    delivery_time: 35,
-    votes: 892
-  },
-  {
-    restaurant_name: "Bombay Brasserie",
-    cuisine: "Indian",
-    rating: 4.4,
-    cost_for_two: 1100,
-    location: "Mumbai",
-    delivery_time: 38,
-    votes: 1654
-  },
-  {
-    restaurant_name: "Trishna",
-    cuisine: "Seafood",
-    rating: 4.7,
-    cost_for_two: 1800,
-    location: "Mumbai",
-    delivery_time: 50,
-    votes: 2341
-  },
-  {
-    restaurant_name: "Leopold Cafe",
-    cuisine: "Continental",
-    rating: 4.0,
-    cost_for_two: 700,
-    location: "Mumbai",
-    delivery_time: 30,
-    votes: 1987
-  },
-  {
-    restaurant_name: "Britannia & Co.",
-    cuisine: "Parsi",
-    rating: 4.2,
-    cost_for_two: 500,
-    location: "Mumbai",
-    delivery_time: 28,
-    votes: 1432
-  },
-  {
-    restaurant_name: "Khyber",
-    cuisine: "North Indian",
-    rating: 4.1,
-    cost_for_two: 800,
-    location: "Mumbai",
-    delivery_time: 33,
-    votes: 1098
-  },
-  {
-    restaurant_name: "Cafe Mocha",
-    cuisine: "Cafe",
-    rating: 3.8,
-    cost_for_two: 350,
-    location: "Mumbai",
-    delivery_time: 20,
-    votes: 654
-  },
-
-  // Bangalore Restaurants
-  {
-    restaurant_name: "Burger Barn",
-    cuisine: "American",
-    rating: 3.8,
-    cost_for_two: 450,
-    location: "Bangalore",
-    delivery_time: 20,
-    votes: 634
-  },
-  {
-    restaurant_name: "Pasta Corner",
-    cuisine: "Italian",
-    rating: 4.0,
-    cost_for_two: 700,
-    location: "Bangalore",
-    delivery_time: 32,
-    votes: 923
-  },
-  {
-    restaurant_name: "BBQ Pit",
-    cuisine: "American",
-    rating: 4.0,
-    cost_for_two: 850,
-    location: "Bangalore",
-    delivery_time: 42,
-    votes: 1234
-  },
-  {
-    restaurant_name: "Thai Spice",
-    cuisine: "Thai",
-    rating: 4.3,
-    cost_for_two: 650,
-    location: "Bangalore",
-    delivery_time: 30,
-    votes: 743
-  },
-  {
-    restaurant_name: "Koshy's",
-    cuisine: "Continental",
-    rating: 4.1,
-    cost_for_two: 400,
-    location: "Bangalore",
-    delivery_time: 25,
-    votes: 1876
-  },
-  {
-    restaurant_name: "Vidyarthi Bhavan",
-    cuisine: "South Indian",
-    rating: 4.5,
-    cost_for_two: 150,
-    location: "Bangalore",
-    delivery_time: 15,
-    votes: 2987
-  },
-  {
-    restaurant_name: "Toit",
-    cuisine: "Continental",
-    rating: 4.2,
-    cost_for_two: 900,
-    location: "Bangalore",
-    delivery_time: 35,
-    votes: 1543
-  },
-  {
-    restaurant_name: "Corner House Ice Cream",
-    cuisine: "Desserts",
-    rating: 4.4,
-    cost_for_two: 300,
-    location: "Bangalore",
-    delivery_time: 20,
-    votes: 2156
-  },
-  {
-    restaurant_name: "Mavalli Tiffin Room",
-    cuisine: "South Indian",
-    rating: 4.3,
-    cost_for_two: 200,
-    location: "Bangalore",
-    delivery_time: 18,
-    votes: 3421
-  },
-  {
-    restaurant_name: "The Fatty Bao",
-    cuisine: "Asian",
-    rating: 4.1,
-    cost_for_two: 800,
-    location: "Bangalore",
-    delivery_time: 30,
-    votes: 987
-  },
-
-  // Chennai Restaurants
-  {
-    restaurant_name: "Noodle House",
-    cuisine: "Chinese",
-    rating: 4.1,
-    cost_for_two: 350,
-    location: "Chennai",
-    delivery_time: 30,
-    votes: 756
-  },
-  {
-    restaurant_name: "Grill Master",
-    cuisine: "American",
-    rating: 4.4,
-    cost_for_two: 950,
-    location: "Chennai",
-    delivery_time: 38,
-    votes: 1456
-  },
-  {
-    restaurant_name: "Ramen Bowl",
-    cuisine: "Japanese",
-    rating: 4.2,
-    cost_for_two: 450,
-    location: "Chennai",
-    delivery_time: 24,
-    votes: 678
-  },
-  {
-    restaurant_name: "Saravana Bhavan",
-    cuisine: "South Indian",
-    rating: 4.0,
-    cost_for_two: 250,
-    location: "Chennai",
-    delivery_time: 20,
-    votes: 4567
-  },
-  {
-    restaurant_name: "Dakshin",
-    cuisine: "South Indian",
-    rating: 4.6,
-    cost_for_two: 1200,
-    location: "Chennai",
-    delivery_time: 40,
-    votes: 1876
-  },
-  {
-    restaurant_name: "Murugan Idli Shop",
-    cuisine: "South Indian",
-    rating: 4.3,
-    cost_for_two: 150,
-    location: "Chennai",
-    delivery_time: 15,
-    votes: 3456
-  },
-  {
-    restaurant_name: "Ponnusamy Hotel",
-    cuisine: "Chettinad",
-    rating: 4.2,
-    cost_for_two: 600,
-    location: "Chennai",
-    delivery_time: 28,
-    votes: 2134
-  },
-  {
-    restaurant_name: "Mathsya",
-    cuisine: "Seafood",
-    rating: 4.1,
-    cost_for_two: 800,
-    location: "Chennai",
-    delivery_time: 35,
-    votes: 987
-  },
-  {
-    restaurant_name: "Cream Centre",
-    cuisine: "Multi-Cuisine",
-    rating: 3.9,
-    cost_for_two: 500,
-    location: "Chennai",
-    delivery_time: 25,
-    votes: 1234
-  },
-  {
-    restaurant_name: "Benjarong",
-    cuisine: "Thai",
-    rating: 4.4,
-    cost_for_two: 1100,
-    location: "Chennai",
-    delivery_time: 42,
-    votes: 1543
-  },
-
-  // Pune Restaurants
-  {
-    restaurant_name: "Taco Fiesta",
-    cuisine: "Mexican",
-    rating: 4.3,
-    cost_for_two: 550,
-    location: "Pune",
-    delivery_time: 28,
-    votes: 432
-  },
-  {
-    restaurant_name: "Dim Sum Delight",
-    cuisine: "Chinese",
-    rating: 4.2,
-    cost_for_two: 650,
-    location: "Pune",
-    delivery_time: 35,
-    votes: 789
-  },
-  {
-    restaurant_name: "Biryani House",
-    cuisine: "Indian",
-    rating: 4.6,
-    cost_for_two: 600,
-    location: "Pune",
-    delivery_time: 33,
-    votes: 2134
-  },
-  {
-    restaurant_name: "Coffee Culture",
-    cuisine: "Cafe",
-    rating: 4.0,
-    cost_for_two: 250,
-    location: "Pune",
-    delivery_time: 15,
-    votes: 456
-  },
-  {
-    restaurant_name: "German Bakery",
-    cuisine: "Bakery",
-    rating: 4.1,
-    cost_for_two: 300,
-    location: "Pune",
-    delivery_time: 18,
-    votes: 1876
-  },
-  {
-    restaurant_name: "Shabree",
-    cuisine: "Maharashtrian",
-    rating: 4.2,
-    cost_for_two: 400,
-    location: "Pune",
-    delivery_time: 25,
-    votes: 1654
-  },
-  {
-    restaurant_name: "Arthur's Theme",
-    cuisine: "Continental",
-    rating: 4.0,
-    cost_for_two: 700,
-    location: "Pune",
-    delivery_time: 30,
-    votes: 987
-  },
-  {
-    restaurant_name: "Malaka Spice",
-    cuisine: "Asian",
-    rating: 4.3,
-    cost_for_two: 800,
-    location: "Pune",
-    delivery_time: 32,
-    votes: 1432
-  },
-  {
-    restaurant_name: "Vaishali",
-    cuisine: "South Indian",
-    rating: 4.1,
-    cost_for_two: 200,
-    location: "Pune",
-    delivery_time: 20,
-    votes: 2987
-  },
-  {
-    restaurant_name: "Goodluck Cafe",
-    cuisine: "Irani",
-    rating: 3.9,
-    cost_for_two: 250,
-    location: "Pune",
-    delivery_time: 22,
-    votes: 1543
-  },
-
-  // Hyderabad Restaurants
-  {
-    restaurant_name: "Paradise Biryani",
-    cuisine: "Hyderabadi",
-    rating: 4.5,
-    cost_for_two: 500,
-    location: "Hyderabad",
-    delivery_time: 30,
-    votes: 5678
-  },
-  {
-    restaurant_name: "Bawarchi",
-    cuisine: "Hyderabadi",
-    rating: 4.3,
-    cost_for_two: 400,
-    location: "Hyderabad",
-    delivery_time: 25,
-    votes: 4321
-  },
-  {
-    restaurant_name: "Shah Ghouse",
-    cuisine: "Hyderabadi",
-    rating: 4.2,
-    cost_for_two: 450,
-    location: "Hyderabad",
-    delivery_time: 28,
-    votes: 3456
-  },
-  {
-    restaurant_name: "Ohri's",
-    cuisine: "Multi-Cuisine",
-    rating: 4.0,
-    cost_for_two: 800,
-    location: "Hyderabad",
-    delivery_time: 35,
-    votes: 1876
-  },
-  {
-    restaurant_name: "Chutneys",
-    cuisine: "South Indian",
-    rating: 4.1,
-    cost_for_two: 300,
-    location: "Hyderabad",
-    delivery_time: 20,
-    votes: 2134
-  },
-  {
-    restaurant_name: "Jewel of Nizam",
-    cuisine: "Hyderabadi",
-    rating: 4.4,
-    cost_for_two: 1000,
-    location: "Hyderabad",
-    delivery_time: 40,
-    votes: 1654
-  },
-  {
-    restaurant_name: "Rayalaseema Ruchulu",
-    cuisine: "Andhra",
-    rating: 4.2,
-    cost_for_two: 600,
-    location: "Hyderabad",
-    delivery_time: 32,
-    votes: 1987
-  },
-  {
-    restaurant_name: "Minerva Coffee Shop",
-    cuisine: "South Indian",
-    rating: 3.9,
-    cost_for_two: 250,
-    location: "Hyderabad",
-    delivery_time: 18,
-    votes: 2987
-  },
-  {
-    restaurant_name: "Absolute Barbecues",
-    cuisine: "Barbecue",
-    rating: 4.3,
-    cost_for_two: 1200,
-    location: "Hyderabad",
-    delivery_time: 45,
-    votes: 1432
-  },
-  {
-    restaurant_name: "Cafe Bahar",
-    cuisine: "Hyderabadi",
-    rating: 4.1,
-    cost_for_two: 350,
-    location: "Hyderabad",
-    delivery_time: 22,
-    votes: 2456
-  },
-
-  // Kolkata Restaurants
-  {
-    restaurant_name: "Peter Cat",
-    cuisine: "Continental",
-    rating: 4.2,
-    cost_for_two: 700,
-    location: "Kolkata",
-    delivery_time: 30,
-    votes: 2134
-  },
-  {
-    restaurant_name: "Flurys",
-    cuisine: "Bakery",
-    rating: 4.0,
-    cost_for_two: 400,
-    location: "Kolkata",
-    delivery_time: 20,
-    votes: 1876
-  },
-  {
-    restaurant_name: "Mocambo",
-    cuisine: "Continental",
-    rating: 4.1,
-    cost_for_two: 800,
-    location: "Kolkata",
-    delivery_time: 35,
-    votes: 1654
-  },
-  {
-    restaurant_name: "Kewpies Kitchen",
-    cuisine: "Bengali",
-    rating: 4.4,
-    cost_for_two: 600,
-    location: "Kolkata",
-    delivery_time: 28,
-    votes: 1432
-  },
-  {
-    restaurant_name: "6 Ballygunge Place",
-    cuisine: "Bengali",
-    rating: 4.3,
-    cost_for_two: 900,
-    location: "Kolkata",
-    delivery_time: 40,
-    votes: 1987
-  },
-  {
-    restaurant_name: "Arsalan",
-    cuisine: "Mughlai",
-    rating: 4.2,
-    cost_for_two: 500,
-    location: "Kolkata",
-    delivery_time: 25,
-    votes: 2987
-  },
-  {
-    restaurant_name: "Bhojohori Manna",
-    cuisine: "Bengali",
-    rating: 4.0,
-    cost_for_two: 450,
-    location: "Kolkata",
-    delivery_time: 22,
-    votes: 2456
-  },
-  {
-    restaurant_name: "Aminia",
-    cuisine: "Mughlai",
-    rating: 4.1,
-    cost_for_two: 400,
-    location: "Kolkata",
-    delivery_time: 20,
-    votes: 3456
-  },
-  {
-    restaurant_name: "Oh! Calcutta",
-    cuisine: "Bengali",
-    rating: 4.3,
-    cost_for_two: 1000,
-    location: "Kolkata",
-    delivery_time: 38,
-    votes: 1543
-  },
-  {
-    restaurant_name: "Tung Fong",
-    cuisine: "Chinese",
-    rating: 3.9,
-    cost_for_two: 350,
-    location: "Kolkata",
-    delivery_time: 18,
-    votes: 1234
-  },
-
-  // Ahmedabad Restaurants
-  {
-    restaurant_name: "Agashiye",
-    cuisine: "Gujarati",
-    rating: 4.5,
-    cost_for_two: 800,
-    location: "Ahmedabad",
-    delivery_time: 35,
-    votes: 1876
-  },
-  {
-    restaurant_name: "Vishalla",
-    cuisine: "Gujarati",
-    rating: 4.3,
-    cost_for_two: 600,
-    location: "Ahmedabad",
-    delivery_time: 30,
-    votes: 2134
-  },
-  {
-    restaurant_name: "Swati Snacks",
-    cuisine: "Gujarati",
-    rating: 4.2,
-    cost_for_two: 300,
-    location: "Ahmedabad",
-    delivery_time: 20,
-    votes: 2987
-  },
-  {
-    restaurant_name: "Gordhan Thal",
-    cuisine: "Gujarati",
-    rating: 4.1,
-    cost_for_two: 400,
-    location: "Ahmedabad",
-    delivery_time: 25,
-    votes: 1654
-  },
-  {
-    restaurant_name: "Tomato's",
-    cuisine: "Multi-Cuisine",
-    rating: 4.0,
-    cost_for_two: 500,
-    location: "Ahmedabad",
-    delivery_time: 28,
-    votes: 1432
-  },
-  {
-    restaurant_name: "Honest",
-    cuisine: "Gujarati",
-    rating: 4.2,
-    cost_for_two: 250,
-    location: "Ahmedabad",
-    delivery_time: 18,
-    votes: 3456
-  },
-  {
-    restaurant_name: "Mirch Masala",
-    cuisine: "Gujarati",
-    rating: 3.9,
-    cost_for_two: 350,
-    location: "Ahmedabad",
-    delivery_time: 22,
-    votes: 1987
-  },
-  {
-    restaurant_name: "Rajwadu",
-    cuisine: "Gujarati",
-    rating: 4.4,
-    cost_for_two: 700,
-    location: "Ahmedabad",
-    delivery_time: 32,
-    votes: 1543
-  },
-  {
-    restaurant_name: "Havmor",
-    cuisine: "Ice Cream",
-    rating: 4.1,
-    cost_for_two: 200,
-    location: "Ahmedabad",
-    delivery_time: 15,
-    votes: 2456
-  },
-  {
-    restaurant_name: "Sankalp",
-    cuisine: "South Indian",
-    rating: 4.0,
-    cost_for_two: 300,
-    location: "Ahmedabad",
-    delivery_time: 20,
-    votes: 1876
-  },
-
-  // Jaipur Restaurants
-  {
-    restaurant_name: "Chokhi Dhani",
-    cuisine: "Rajasthani",
-    rating: 4.3,
-    cost_for_two: 900,
-    location: "Jaipur",
-    delivery_time: 40,
-    votes: 2134
-  },
-  {
-    restaurant_name: "Laxmi Mishthan Bhandar",
-    cuisine: "Rajasthani",
-    rating: 4.2,
-    cost_for_two: 300,
-    location: "Jaipur",
-    delivery_time: 20,
-    votes: 3456
-  },
-  {
-    restaurant_name: "Spice Court",
-    cuisine: "Rajasthani",
-    rating: 4.1,
-    cost_for_two: 600,
-    location: "Jaipur",
-    delivery_time: 30,
-    votes: 1876
-  },
-  {
-    restaurant_name: "Handi Restaurant",
-    cuisine: "Rajasthani",
-    rating: 4.0,
-    cost_for_two: 500,
-    location: "Jaipur",
-    delivery_time: 25,
-    votes: 1654
-  },
-  {
-    restaurant_name: "Peacock Rooftop Restaurant",
-    cuisine: "Multi-Cuisine",
-    rating: 4.2,
-    cost_for_two: 800,
-    location: "Jaipur",
-    delivery_time: 35,
-    votes: 1432
-  },
-  {
-    restaurant_name: "Rawat Mishtan Bhandar",
-    cuisine: "Rajasthani",
-    rating: 4.4,
-    cost_for_two: 250,
-    location: "Jaipur",
-    delivery_time: 18,
-    votes: 2987
-  },
-  {
-    restaurant_name: "Tapri Central",
-    cuisine: "Cafe",
-    rating: 3.9,
-    cost_for_two: 350,
-    location: "Jaipur",
-    delivery_time: 22,
-    votes: 1987
-  },
-  {
-    restaurant_name: "Surya Mahal",
-    cuisine: "Rajasthani",
-    rating: 4.1,
-    cost_for_two: 700,
-    location: "Jaipur",
-    delivery_time: 32,
-    votes: 1543
-  },
-  {
-    restaurant_name: "Natraj Dining Hall",
-    cuisine: "Rajasthani",
-    rating: 4.0,
-    cost_for_two: 400,
-    location: "Jaipur",
-    delivery_time: 28,
-    votes: 2456
-  },
-  {
-    restaurant_name: "Anokhi Cafe",
-    cuisine: "Continental",
-    rating: 4.2,
-    cost_for_two: 450,
-    location: "Jaipur",
-    delivery_time: 25,
-    votes: 1234
-  },
-
-  // Chandigarh Restaurants
-  {
-    restaurant_name: "Pal Dhaba",
-    cuisine: "Punjabi",
-    rating: 4.1,
-    cost_for_two: 400,
-    location: "Chandigarh",
-    delivery_time: 25,
-    votes: 1876
-  },
-  {
-    restaurant_name: "Gopal Sweets",
-    cuisine: "Punjabi",
-    rating: 4.0,
-    cost_for_two: 300,
-    location: "Chandigarh",
-    delivery_time: 20,
-    votes: 2134
-  },
-  {
-    restaurant_name: "Backyard Cafe",
-    cuisine: "Continental",
-    rating: 4.2,
-    cost_for_two: 600,
-    location: "Chandigarh",
-    delivery_time: 30,
-    votes: 1654
-  },
-  {
-    restaurant_name: "Whistling Duck",
-    cuisine: "Multi-Cuisine",
-    rating: 4.3,
-    cost_for_two: 800,
-    location: "Chandigarh",
-    delivery_time: 35,
-    votes: 1432
-  },
-  {
-    restaurant_name: "Pirates of Grill",
-    cuisine: "Barbecue",
-    rating: 4.1,
-    cost_for_two: 1000,
-    location: "Chandigarh",
-    delivery_time: 40,
-    votes: 1987
-  },
-  {
-    restaurant_name: "Sindhi Sweets",
-    cuisine: "Punjabi",
-    rating: 3.9,
-    cost_for_two: 250,
-    location: "Chandigarh",
-    delivery_time: 18,
-    votes: 2987
-  },
-  {
-    restaurant_name: "Cafe JC's",
-    cuisine: "Cafe",
-    rating: 4.0,
-    cost_for_two: 350,
-    location: "Chandigarh",
-    delivery_time: 22,
-    votes: 1543
-  },
-  {
-    restaurant_name: "Ghazal",
-    cuisine: "Punjabi",
-    rating: 4.2,
-    cost_for_two: 500,
-    location: "Chandigarh",
-    delivery_time: 28,
-    votes: 2456
-  },
-  {
-    restaurant_name: "Paranthas",
-    cuisine: "Punjabi",
-    rating: 4.1,
-    cost_for_two: 200,
-    location: "Chandigarh",
-    delivery_time: 15,
-    votes: 3456
-  },
-  {
-    restaurant_name: "Barbeque Nation",
-    cuisine: "Barbecue",
-    rating: 4.0,
-    cost_for_two: 900,
-    location: "Chandigarh",
-    delivery_time: 38,
-    votes: 1234
   }
 ];
 
-// Function to generate additional data programmatically for large dataset simulation
-export const generateLargeDataset = (baseSize: number = 1000): any[] => {
-  const cuisines = [
-    'Indian', 'Chinese', 'Italian', 'Mexican', 'Thai', 'Japanese', 'American', 
-    'Continental', 'Mediterranean', 'Korean', 'Vietnamese', 'Lebanese', 'Greek',
-    'French', 'Spanish', 'Turkish', 'Moroccan', 'Ethiopian', 'Peruvian', 'Brazilian'
-  ];
+// Comprehensive data for large dataset generation
+const restaurantNames = [
+  // Indian Names
+  "Spice Route", "Curry House", "Tandoor Express", "Masala Magic", "Biryani Palace",
+  "Dosa Corner", "Chaat Street", "Punjabi Dhaba", "South Spice", "Royal Kitchen",
+  "Golden Spoon", "Saffron Dreams", "Maharaja's Table", "Spice Garden", "Curry Express",
+  "Tandoor Tales", "Masala Junction", "Biryani House", "Dosa Delight", "Chaat Central",
   
-  const locations = [
-    'Delhi', 'Mumbai', 'Bangalore', 'Chennai', 'Pune', 'Hyderabad', 'Kolkata',
-    'Ahmedabad', 'Jaipur', 'Chandigarh', 'Lucknow', 'Kochi', 'Indore', 'Nagpur',
-    'Vadodara', 'Coimbatore', 'Agra', 'Madurai', 'Nashik', 'Faridabad'
-  ];
+  // International Names
+  "Pizza Corner", "Burger Barn", "Sushi Zen", "Pasta Palace", "Taco Fiesta",
+  "Noodle House", "BBQ Pit", "Grill Master", "Smoothie Station", "Coffee Culture",
+  "Mediterranean Magic", "Thai Spice", "Chinese Dragon", "Korean Kitchen", "Vietnamese Pho",
+  "Italian Bistro", "French Cafe", "Spanish Tapas", "Greek Taverna", "Turkish Delight",
+  
+  // Fusion & Modern
+  "Urban Kitchen", "Modern Bistro", "Fusion Factory", "Global Grill", "World Cuisine",
+  "Metro Meals", "City Bites", "Downtown Diner", "Uptown Eats", "Central Kitchen",
+  "Fresh & Fast", "Quick Bites", "Healthy Hub", "Organic Oasis", "Green Garden",
+  
+  // Premium & Fine Dining
+  "The Royal Table", "Elite Dining", "Premium Palace", "Luxury Lounge", "Grand Gourmet",
+  "Exquisite Eats", "Fine Flavors", "Elegant Eatery", "Sophisticated Spice", "Classy Cuisine"
+];
 
-  const restaurantPrefixes = [
-    'The', 'Royal', 'Golden', 'Spice', 'Taste', 'Flavor', 'Aroma', 'Delicious',
-    'Fresh', 'Urban', 'Classic', 'Modern', 'Traditional', 'Authentic', 'Premium'
-  ];
+const cuisineTypes = [
+  // Indian Cuisines
+  "North Indian", "South Indian", "Punjabi", "Gujarati", "Rajasthani", "Bengali", 
+  "Maharashtrian", "Hyderabadi", "Chettinad", "Mughlai", "Awadhi", "Kashmiri",
+  "Goan", "Assamese", "Bihari", "Odia", "Manipuri", "Naga",
+  
+  // International Cuisines
+  "Chinese", "Italian", "Mexican", "Thai", "Japanese", "Korean", "Vietnamese",
+  "American", "Continental", "Mediterranean", "Lebanese", "Greek", "Turkish",
+  "French", "Spanish", "German", "Russian", "Brazilian", "Peruvian",
+  "Ethiopian", "Moroccan", "Egyptian", "Iranian", "Afghan", "Nepalese",
+  
+  // Specialty Categories
+  "Fast Food", "Street Food", "Healthy", "Vegan", "Vegetarian", "Seafood",
+  "Barbecue", "Desserts", "Bakery", "Cafe", "Ice Cream", "Beverages",
+  "Multi-Cuisine", "Fusion", "Organic", "Gluten-Free"
+];
 
-  const restaurantSuffixes = [
-    'Kitchen', 'Bistro', 'Cafe', 'Restaurant', 'Grill', 'House', 'Corner',
-    'Palace', 'Garden', 'Express', 'Junction', 'Hub', 'Station', 'Point', 'Zone'
-  ];
+const indianCities = [
+  // Tier 1 Cities
+  "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune", "Ahmedabad",
+  
+  // Tier 2 Cities
+  "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", "Bhopal", "Visakhapatnam",
+  "Pimpri-Chinchwad", "Patna", "Vadodara", "Ghaziabad", "Ludhiana", "Agra", "Nashik",
+  "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi",
+  "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad",
+  "Ranchi", "Howrah", "Coimbatore", "Jabalpur", "Gwalior", "Vijayawada", "Jodhpur",
+  "Madurai", "Raipur", "Kota", "Chandigarh", "Guwahati", "Solapur", "Hubli-Dharwad",
+  "Tiruchirappalli", "Bareilly", "Mysore", "Tiruppur", "Gurgaon", "Aligarh",
+  "Jalandhar", "Bhubaneswar", "Salem", "Warangal", "Guntur", "Bhiwandi", "Saharanpur",
+  "Gorakhpur", "Bikaner", "Amravati", "Noida", "Jamshedpur", "Bhilai", "Cuttack",
+  "Firozabad", "Kochi", "Nellore", "Bhavnagar", "Dehradun", "Durgapur", "Asansol"
+];
 
+const restaurantPrefixes = [
+  "The", "Royal", "Golden", "Spice", "Taste", "Flavor", "Aroma", "Delicious",
+  "Fresh", "Urban", "Classic", "Modern", "Traditional", "Authentic", "Premium",
+  "Elite", "Grand", "Supreme", "Divine", "Heavenly", "Exotic", "Unique",
+  "Special", "Famous", "Popular", "Favorite", "Best", "Top", "Star",
+  "Crown", "Palace", "Empire", "Kingdom", "Castle", "Manor", "Villa"
+];
+
+const restaurantSuffixes = [
+  "Kitchen", "Bistro", "Cafe", "Restaurant", "Grill", "House", "Corner",
+  "Palace", "Garden", "Express", "Junction", "Hub", "Station", "Point", "Zone",
+  "Lounge", "Bar", "Diner", "Eatery", "Place", "Spot", "Nook", "Den",
+  "Club", "Center", "Plaza", "Square", "Court", "Lane", "Street", "Avenue",
+  "Factory", "Studio", "Workshop", "Lab", "Gallery", "Boutique"
+];
+
+// Enhanced function to generate realistic restaurant data
+export const generateLargeDataset = (baseSize: number = 5000): any[] => {
   const generatedData = [];
   
+  // Add original sample data
+  generatedData.push(...sampleZomatoData);
+  
   for (let i = 0; i < baseSize; i++) {
-    const cuisine = cuisines[Math.floor(Math.random() * cuisines.length)];
-    const location = locations[Math.floor(Math.random() * locations.length)];
-    const prefix = restaurantPrefixes[Math.floor(Math.random() * restaurantPrefixes.length)];
-    const suffix = restaurantSuffixes[Math.floor(Math.random() * restaurantSuffixes.length)];
+    const cuisine = cuisineTypes[Math.floor(Math.random() * cuisineTypes.length)];
+    const location = indianCities[Math.floor(Math.random() * indianCities.length)];
+    
+    // Generate restaurant name based on cuisine
+    let restaurantName;
+    if (Math.random() < 0.3) {
+      // Use predefined names
+      restaurantName = restaurantNames[Math.floor(Math.random() * restaurantNames.length)];
+    } else {
+      // Generate new names
+      const prefix = restaurantPrefixes[Math.floor(Math.random() * restaurantPrefixes.length)];
+      const suffix = restaurantSuffixes[Math.floor(Math.random() * restaurantSuffixes.length)];
+      
+      if (Math.random() < 0.5) {
+        restaurantName = `${prefix} ${cuisine} ${suffix}`;
+      } else {
+        restaurantName = `${prefix} ${suffix}`;
+      }
+    }
+    
+    // Generate realistic ratings with normal distribution
+    const baseRating = 3.5 + (Math.random() * 1.5); // 3.5 to 5.0 base
+    const rating = Math.max(2.0, Math.min(5.0, baseRating + (Math.random() - 0.5) * 0.8));
+    
+    // Generate cost based on cuisine and location
+    let baseCost = 300;
+    
+    // Adjust cost based on cuisine
+    if (['Japanese', 'Italian', 'French', 'Mediterranean'].includes(cuisine)) {
+      baseCost = 800;
+    } else if (['Chinese', 'Thai', 'Korean', 'Continental'].includes(cuisine)) {
+      baseCost = 600;
+    } else if (['North Indian', 'South Indian', 'Punjabi'].includes(cuisine)) {
+      baseCost = 400;
+    } else if (['Street Food', 'Fast Food', 'Cafe'].includes(cuisine)) {
+      baseCost = 250;
+    }
+    
+    // Adjust cost based on location (tier 1 cities are more expensive)
+    const tier1Cities = ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune", "Ahmedabad"];
+    if (tier1Cities.includes(location)) {
+      baseCost *= 1.3;
+    }
+    
+    const costVariation = 0.5 + Math.random(); // 0.5x to 1.5x variation
+    const cost_for_two = Math.round(baseCost * costVariation / 50) * 50; // Round to nearest 50
+    
+    // Generate delivery time based on location and cost
+    let baseDeliveryTime = 25;
+    if (cost_for_two > 1000) baseDeliveryTime = 35; // Premium restaurants take longer
+    if (cuisine === 'Fast Food') baseDeliveryTime = 15;
+    
+    const delivery_time = Math.max(10, Math.min(60, 
+      baseDeliveryTime + Math.floor((Math.random() - 0.5) * 20)
+    ));
+    
+    // Generate votes based on rating and age (simulated)
+    const baseVotes = Math.floor(50 + Math.random() * 2000);
+    const ratingMultiplier = rating > 4.0 ? 1.5 : rating > 3.5 ? 1.2 : 0.8;
+    const votes = Math.floor(baseVotes * ratingMultiplier);
     
     const restaurant = {
-      restaurant_name: `${prefix} ${cuisine} ${suffix}`,
+      restaurant_name: restaurantName,
       cuisine: cuisine,
-      rating: parseFloat((2.5 + Math.random() * 2.5).toFixed(1)), // 2.5 to 5.0
-      cost_for_two: Math.floor(150 + Math.random() * 1850), // 150 to 2000
+      rating: parseFloat(rating.toFixed(1)),
+      cost_for_two: cost_for_two,
       location: location,
-      delivery_time: Math.floor(10 + Math.random() * 50), // 10 to 60 minutes
-      votes: Math.floor(50 + Math.random() * 5000) // 50 to 5000 votes
+      delivery_time: delivery_time,
+      votes: votes
     };
     
     generatedData.push(restaurant);
   }
   
-  return [...sampleZomatoData, ...generatedData];
+  return generatedData;
 };
 
-// Export large dataset for immediate use
-export const largeZomatoDataset = generateLargeDataset(500);
+// Generate different sized datasets
+export const smallDataset = generateLargeDataset(100);
+export const mediumDataset = generateLargeDataset(1000);
+export const largeDataset = generateLargeDataset(5000);
+export const extraLargeDataset = generateLargeDataset(10000);
+
+// Export the medium dataset as default for backward compatibility
+export const largeZomatoDataset = mediumDataset;
+
+// Function to generate custom sized dataset
+export const generateCustomDataset = (size: number) => {
+  return generateLargeDataset(size);
+};
+
+// Dataset statistics for reference
+export const getDatasetStats = (dataset: any[]) => {
+  if (dataset.length === 0) return null;
+  
+  const cuisines = [...new Set(dataset.map(item => item.cuisine))];
+  const locations = [...new Set(dataset.map(item => item.location))];
+  const avgRating = dataset.reduce((sum, item) => sum + item.rating, 0) / dataset.length;
+  const avgCost = dataset.reduce((sum, item) => sum + item.cost_for_two, 0) / dataset.length;
+  const totalVotes = dataset.reduce((sum, item) => sum + item.votes, 0);
+  
+  return {
+    totalRestaurants: dataset.length,
+    uniqueCuisines: cuisines.length,
+    uniqueLocations: locations.length,
+    averageRating: avgRating.toFixed(2),
+    averageCost: Math.round(avgCost),
+    totalVotes: totalVotes,
+    cuisineList: cuisines.sort(),
+    locationList: locations.sort()
+  };
+};
